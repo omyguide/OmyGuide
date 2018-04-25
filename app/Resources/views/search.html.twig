@@ -1,0 +1,25 @@
+  {{ form_start(form, {'attr': {'id': 'search-form'}}) }}
+
+  {{ form_errors(form) }}
+
+  <div class="s-input">
+      <span aria-hidden="true" class="fa fa-suitcase"></span>
+      {{ form_widget(form.destination, {'attr': {'name': 'destination', 'class': 's-input-dest'}}) }}
+  </div>
+
+  <div class="s-input-quarter">
+  <img class="icon-date" src="{{ asset('images/calendar.svg') }}">
+  {{ form_widget(form.date_begin, {'attr': {'class': 's-input-dep', 'placeholder': 'Dep' }}) }}
+  </div>
+  <div class="s-input-quarter">
+  <img class="icon-date" src="{{ asset('images/calendar.svg') }}">
+  {{ form_widget(form.date_end, {'attr': {'class': 's-input-arr', 'placeholder': 'Arr' }}) }}
+  </div>
+
+  <div class="s-input-half">
+  {{ form_widget(form.submit, {'attr': {'class': 's-button'}, 'label': 'Search'}) }}
+  </div>
+
+  {{ form_rest(form) }}
+
+  {{ form_end(form) }}

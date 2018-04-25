@@ -1,0 +1,10 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="layout-header">
+  <header id="masthead" class="main-header" role="banner">
+    <a href="/" class="header-logo"><img src="{{ asset('images/logo.png') }}" alt="BMyGuide"></a>
+    <nav class="header-nav">
+      {{ knp_menu_render('main', {'allow_safe_labels': true}) }}
+    </nav>
+  </header>
+</div> <!-- layout-header -->

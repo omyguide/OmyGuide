@@ -1,0 +1,68 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div id="loginOverlay" style="opacity: 0.9; visibility: visible;"></div>
+<div id="registerBox" role="dialog" tabindex="-1">
+    <div id="loginBoxWrapper">
+        <div id="loginBoxContent">
+                <div id="loginBoxFrame">
+                    <section class="box mod-modal mod-login js-login-modal" data-error-message="Une erreur s'est produite. Veuillez réessayer.">
+                        <header id="loginBoxHeader">
+                            <h1>{{ 'layout.register'|trans}}</h1>
+                        </header>
+
+                        <div id="loginForm">
+                          {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register')}) }}
+                                <fieldset>
+                                    <div class="register-user">
+                                        <div class="register-name first">
+                                          {{ form_widget(form.firstname, {'attr': {'class': 'rounded padded', 'placeholder': 'First name' }}) }}
+                                          {{ form_errors(form.firstname) }}
+                                        </div>
+                                        <div class="register-name last">
+                                          {{ form_widget(form.lastname, {'attr': {'class': 'rounded padded', 'placeholder': 'Last name' }}) }}
+                                          {{ form_errors(form.lastname) }}
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    {{ form_widget(form.username, {'attr': {'class': 'rounded padded', 'placeholder': 'form.username'|trans }}) }}
+                                    {{ form_errors(form.username) }}
+                                </fieldset>
+                                <fieldset>
+                                    {{ form_widget(form.email, {'attr': {'class': 'rounded padded', 'placeholder': 'form.email'|trans }}) }}
+                                    {{ form_errors(form.email) }}
+                                </fieldset>
+                                <fieldset>
+                                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'rounded padded', 'placeholder': 'form.password'|trans }}) }}
+                                    {{ form_errors(form.plainPassword.first) }}
+                                </fieldset>
+                                <fieldset>
+                                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'rounded padded', 'placeholder': 'form.password_confirmation'|trans }}) }}
+                                    {{ form_errors(form.plainPassword.second) }}
+                                </fieldset>
+
+                                <input class="full-width no-max-width" name="commit" type="submit" value="Register with Email">
+
+                                 {{ form_rest(form) }}
+                            {{ form_end(form) }}
+                            <div class="dash">
+                                <span class="t-bold">or</span>
+                            </div>
+                            <a class="button b-facebook full-width no-max-width" href="#" onclick="fb_login()">
+                                <span aria-hidden="true" class="fa fa-facebook icon-facebook"></span>
+                                Continue with Facebook
+                            </a>
+
+                            <div id="loginBoxFooter" class="u-text-center">
+                                <p class="not-registered">Already have an account&nbsp;?</p>
+                                <a class="button" onclick="window.location='{{ url('fos_user_security_login') }}'">Connexion</a>
+                            </div>
+                        </div> <!-- loginForm -->
+                    </section>
+                </div> <!-- loginBoxFrame -->
+
+                <button type="button" id="loginBoxClose" class="fa fa-times" onclick="window.location='{{ url('homepage') }}'"></button>
+        </div> <!-- loginBoxContent -->
+    </div> <!-- loginBoxWrapper -->
+</div> <!-- registerBox -->
+</div> <!-- loginOverlay -->

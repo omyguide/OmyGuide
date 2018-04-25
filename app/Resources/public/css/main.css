@@ -1,0 +1,241 @@
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+}
+
+ul {
+    padding: 0;
+    margin: 0 0 10px 25px;
+}
+
+li {
+    line-height: 20px;
+}
+
+button, input, label, select, textarea {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+button, input, select, textarea {
+    margin: 0;
+    font-size: 100%;
+    vertical-align: middle;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+input, textarea {
+    margin-left: 0;
+}
+
+.layout {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #EDEDED;
+    color: #054752;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.layout-header {
+    position: relative;
+    background-color: #048b9a;
+}
+
+.layout-header a {
+    color: #fff;
+}
+
+.layout-header a:hover {
+    color: #054752;
+    text-decoration: none;
+}
+
+.main-header {
+    z-index: 2;
+    position: relative;
+    max-width: 1360px;
+    height: 62px;
+    padding: 0 32px;
+    margin: 0 auto;
+    line-height: 62px;
+    background-color: #048b9a;
+    font-size: 16px;
+}
+
+.header-logo {
+	display: inline-block;
+    width: 127px;
+}
+
+.header-nav {
+    position: absolute;
+    top : 0;
+    right: 32px;
+    height: 62px;
+    text-align: right;
+}
+
+.header-nav a {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+nav.ul {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+}
+
+.header-nav-li {
+    display: inline-block;
+    padding: 0 8px;
+    position: relative;
+}
+
+.header-nav-text {
+	cursor: pointer;
+    line-height: 62px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.splash {
+    padding: 9em 0 2em;
+    background-color: #141d27;
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+    text-align: center
+}
+
+a {
+	color: #287fb8;
+	background-color: transparent;
+    text-decoration: none;
+}
+
+.u-left {
+    float: left;
+}
+
+.u-right {
+    float: right;
+}
+
+.u-text-center {
+    text-align: center;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+    background-color: #FFFFFF !important;
+    color: #555 !important;
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: #555555 !important;
+    }
+
+input[type="text"], input[type="password"], input[type="email"] {
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 3px;
+    box-shadow: none;
+    box-sizing: border-box;
+    display: block;
+    padding: 8px;
+    width: 100%;
+}
+
+input[type=checkbox]+label {
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+input[type='submit'] {
+    background-color: #287fb8;
+    border: 1px solid #287fb8;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+    max-width: 240px;
+    min-width: 6em;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    white-space: normal;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+input[type='submit'].no-max-width, .button.no-max-width {
+    max-width: 100%;
+}
+
+input[type='submit'].full-width, .button.full-width {
+    width: 100%;
+}
+
+input[type=checkbox] {
+    cursor: pointer;
+    display: inline;
+    margin-right: 2px;
+    font-size: 11px;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+fieldset {
+    border: 0;
+    margin: 0 0 1em;
+    padding: 0;
+}
+
+.t-bold {
+	font-weight: 700;
+}
+
+.button {
+    background-color: #287fb8;
+    border: 1px solid #287fb8;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+    max-width: 240px;
+    min-width: 6em;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    white-space: normal;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+}

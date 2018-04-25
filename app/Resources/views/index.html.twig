@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+{% endblock %}
+
+{% block header %}
+  {{ include('header.html.twig') }}
+{% endblock %}
+
+{% block content %}
+  <div class="front-container-flex">
+  <article id="search_box" class="frontPageBox">
+    <div class="searchBoxImage">
+      <div class="form-block">
+        <div class="inner-block">
+          <h1 class="title-block">Create your own trip.</h1>
+          {{ include('search.html.twig') }}
+          </div><!-- inner-block -->
+        </div><!-- form-block -->
+      </div><!-- searchBoxImage -->
+    </article>
+  </div><!-- front-container-flex -->
+{% endblock %}
+
+{% block footer %}
+  {{ include('footer.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#appbundle_searchtrip_destination").select2({placeholder: 'Country'});
+      $('b[role="presentation"]').hide();
+      $('.js-datepicker').datepicker({orientation: 'bottom'});
+    });
+  </script>
+{% endblock %}

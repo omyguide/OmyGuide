@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: travelplatform
+    database_user: root
+    database_password: tty
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: bertrand.galimard@gmail.com
+    mailer_password: null
+    secret: ea0400ea452b7ddca2c36b4a8572d1058b265d4a
+    facebook_client_id: 2120612814839517
+    facebook_secret: 64a568b89d75a707f82167a0113b3fa9
+    google_client_id: google_client_id
+    google_secret: google_secret

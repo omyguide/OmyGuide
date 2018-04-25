@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  {% stylesheets 'css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+  {% endstylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block body %}
+  <div class="layout">
+    {% block header %}{% endblock %}
+    <main id="main-container" class="layout-main" role="main">
+      <div class="layout-content">
+        {% block content %}{% endblock %}
+      </div><!-- #layout-content -->
+    </main>
+    {% block footer %}{% endblock %}
+  </div>
+{% endblock %}
