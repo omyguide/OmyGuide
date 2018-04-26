@@ -40,7 +40,7 @@ class MenuBuilder
 
             // Edit profile
             $profile->addChild('profile.edit',
-              array('route' => 'fos_user_security_logout',
+              array('route' => 'fos_user_profile_edit',
                 'attributes' => array('class' => 'header-nav-sub-li'),
                 'linkAttributes' => array('class' => 'header-nav-sub-text')
               )
