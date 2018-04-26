@@ -91,6 +91,9 @@ fos_user:
     registration:
         form:
             type: AppBundle\Form\RegistrationType
+    profile:
+        form:
+            type: AppBundle\Form\ProfileType
 
 #HWIOAuthBundle Configuration
 hwi_oauth:
