@@ -29,13 +29,14 @@ class MenuBuilder
         )->setExtra('translation_domain', 'FOSUserBundle');
 
         if ($this->authorization_checker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            $profile_picture='<img class="img-round mod-avatar" src="'.$this->token_storage->getToken()->getUser()->getProfilePicture().'"/>';
-            $menu->addChild($profile_picture,
-              array('attributes' => array('class' => 'header-nav-li','dropdown' => true),
+            $profile_picture=$this->token_storage->getToken()->getUser()->getProfilePicture();
+            $label=$profile_picture?'<img class="img-round mod-avatar" src="'.$profile_picture.'"/>':$this->token_storage->getToken()->getUser()->getFirstName();
+            $profile=$menu->addChild($label,
+              array('attributes' => array('class' => 'header-nav-li'),
                 'linkAttributes' => array('class' => 'header-nav-text')
               )
             )->setExtra('safe_label', true );
-            $profile=$menu->getChild($profile_picture);
+
             $profile->setChildrenAttribute('class','test');
 
             // Edit profile
@@ -62,6 +63,24 @@ class MenuBuilder
               )
             )->setExtra('translation_domain', 'FOSUserBundle');
         }
+
+        return $menu;
+    }
+
+    public function createProfileMenu(array $options)
+    {
+        $menu = $this->factory->createItem('root',
+          array('childrenAttributes'  => array('class' => 'profile-nav card'))
+        );
+
+        $menu->addChild('profile.edit',
+          array('route' => 'fos_user_profile_edit')
+        );
+
+        $menu->addChild('Mon compte',
+          array('route' => 'fos_user_profile_edit')
+        )->setExtra('translation_domain', 'FOSUserBundle');
+
 
         return $menu;
     }
