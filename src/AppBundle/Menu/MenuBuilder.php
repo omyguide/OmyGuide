@@ -30,14 +30,21 @@ class MenuBuilder
 
         if ($this->authorization_checker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $profile_picture=$this->token_storage->getToken()->getUser()->getProfilePicture();
-            $label=$profile_picture?'<img class="img-round mod-avatar" src="'.$profile_picture.'"/>':$this->token_storage->getToken()->getUser()->getFirstName();
+            $label=$profile_picture?'<img class="img-round mod-pic" src="'.$profile_picture.'"/>':$this->token_storage->getToken()->getUser()->getFirstName();
             $profile=$menu->addChild($label,
-              array('attributes' => array('class' => 'header-nav-li'),
-                'linkAttributes' => array('class' => 'header-nav-text')
+              array('attributes' => array('class' => 'header-nav-li dropdown'),
+                'uri' => '#',
+                'linkAttributes' => array('class' => $profile_picture?'header-nav-pic':'header-nav-text')
               )
             )->setExtra('safe_label', true );
 
-            $profile->setChildrenAttribute('class','test');
+            $profile->setChildrenAttribute('class','dropdown-menu');
+
+            // Arrow
+            $profile->addChild('',
+              array('attributes' => array('class' => 'dropdown-arrow-top')
+              )
+            );
 
             // Edit profile
             $profile->addChild('profile.edit',
@@ -53,7 +60,7 @@ class MenuBuilder
                 'attributes' => array('class' => 'header-nav-sub-li'),
                 'linkAttributes' => array('class' => 'header-nav-sub-text')
               )
-            )->setExtra('translation_domain', 'FOSUserBundle');;
+            )->setExtra('translation_domain', 'FOSUserBundle');
         }
         else {
             $menu->addChild('layout.login',
