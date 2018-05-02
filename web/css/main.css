@@ -52,7 +52,7 @@ input, textarea {
 .main-header {
     z-index: 2;
     position: relative;
-    max-width: 1360px;
+    max-width: 1280px;
     padding: 0 35px;
     margin: 0 auto;
 }
@@ -60,6 +60,8 @@ input, textarea {
 nav.navbar {
     font-size: 14px;
     line-height: 1;
+    margin: 0 auto;
+    max-width: 1280px;
 }
 
 nav.navbar .navbar-brand > a > img {
@@ -73,7 +75,7 @@ nav.navbar .navbar-nav > li > a.nav-link {
   padding: 15px 25px;
 }
 
-.dropdown-toggle::after {
+nav.navbar .navbar-nav > li.dropdown > a.dropdown-toggle::after {
     display:none
 }
 
@@ -86,54 +88,30 @@ nav.navbar .navbar-nav > li > a.header-nav-pic  {
     max-height: 40px;
 }
 
-.dropdown > .dropdown-menu {
-    margin-top: 7px;
+nav.navbar .navbar-nav > li.dropdown .dropdown-menu {
     right: 0;
     left: auto;
     font-size: 15px;
-}
-
-.navbar-dark .navbar-nav .dropdown-menu .nav-link {
-    color: #048b9a;
-}
-
-.navbar-dark .navbar-nav .dropdown-menu .nav-link:hover {
-    color: #000;
-}
-
-.header-nav-right li.dropdown .dropdown-menu {
-    border: 1px solid #dbdbdb;
-    background-color: #fff;
-    box-shadow: none;
     border-radius: 0;
+    margin-top: 7px;
     padding: 0;
     min-width: 280px;
     max-width: 460px;
-    margin-top: 15px;
 }
 
-.header-nav-right li.dropdown .dropdown-menu>li>a {
-    display: block;
-    padding: 0 16px;
-    text-decoration: none;
-    clear: both;
-    font-weight: 400;
-    line-height: 1.42857;
+nav.navbar .navbar-nav > li.dropdown .dropdown-menu .dropdown-divider {
+    margin: 0;
+}
+
+nav.navbar .navbar-nav > li.dropdown .dropdown-menu a.nav-link {
     color: #048b9a;
+    padding: 15px;
 }
 
-.header-nav-right li.dropdown .dropdown-menu:before {
-          content: "";
-          position: absolute;
-          top: -20px;
-          left: 0;
-          right: 0;
-          height: 20px;
+nav.navbar .navbar-nav > li.dropdown .dropdown-menu a.nav-link:hover {
+    color: #000;
 }
 
-.header-nav-right li:hover .dropdown-menu {
-    display: block;
-}
 .profile-nav {
     margin-top: 25px;
     margin-bottom: 40px;
