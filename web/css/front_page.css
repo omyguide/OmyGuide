@@ -199,7 +199,6 @@ body {
 
 .inner-block {
     position: relative;
-    min-width: 700px;
     max-width: 1190px;
     width: 100%;
     padding: 48px 0;

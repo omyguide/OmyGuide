@@ -22,7 +22,8 @@ class MenuBuilder
         $menu = $this->factory->createItem('root',array('childrenAttributes' => array('class' => 'navbar-nav ml-auto')));
 
         $menu->addChild('layout.register',
-          array('route' => 'fos_user_registration_register')
+          array('attributes' => array('divider_append_2' => true),
+            'route' => 'fos_user_registration_register')
         )->setExtra('translation_domain', 'FOSUserBundle');
 
         if ($this->authorization_checker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -38,7 +39,7 @@ class MenuBuilder
             // Edit profile
             $profile->addChild('profile.edit',
               array('route' => 'fos_user_profile_edit',
-                'attributes' => array('divider_append' => true)
+                'attributes' => array('divider_prepend' => true, 'divider_append' => true)
               )
             );
 
