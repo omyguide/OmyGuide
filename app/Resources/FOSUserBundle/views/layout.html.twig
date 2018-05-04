@@ -1,5 +1,9 @@
 {% extends "layout.html.twig" %}
 
+{% block header %}
+  {{ include('header.html.twig') }}
+{% endblock %}
+
 {% block javascripts %}
   <script>
   window.fbAsyncInit = function() {
@@ -41,4 +45,8 @@ function fb_login() {
 {% block content %}
   {% block fos_user_content %}
   {% endblock fos_user_content %}
+{% endblock %}
+
+{% block footer %}
+  {{ include('footer.html.twig') }}
 {% endblock %}
