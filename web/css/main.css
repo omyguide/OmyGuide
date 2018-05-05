@@ -10,6 +10,9 @@ body {
     font-size: 14px;
     line-height: 20px;
     color: #333;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 ul {
@@ -32,6 +35,10 @@ button, input, select, textarea {
 
 input, textarea {
     margin-left: 0;
+}
+
+.main-flex {
+    flex: 1;
 }
 
 .layout {

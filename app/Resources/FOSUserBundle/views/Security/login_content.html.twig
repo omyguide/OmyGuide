@@ -1,5 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+<main id="main-container" class="container main-flex" role="main">
 <div class="signin-form">
 
 {% if error %}
@@ -35,3 +36,4 @@
 
     <div class="text-center small">{{ 'registration.no_account'|trans({}, 'messages') }} <a href="{{ path('fos_user_registration_register') }}">{{ 'registration.signup'|trans({}, 'messages') }}</a></div>
 </div>
+</main>
