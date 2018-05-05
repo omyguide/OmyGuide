@@ -1,53 +1,37 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+<div class="signin-form">
+
 {% if error %}
-  <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-    <div id="loginBoxContent">
-        <div id="loginBoxFrame">
-            <section class="box mod-modal mod-login js-login-modal">
-                <header id="loginBoxHeader">
-                    <h1>Connexion</h1>
-                </header>
+    <form action="{{ path('fos_user_security_check') }}" method="post">
+      {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+      {% endif %}
+		    <h2>{{ 'security.login.signin'|trans({}, 'messages') }}</h2>
+        <p class="hint-text">{{ 'security.login.signin_social'|trans({}, 'messages') }}</p>
+        <div class="social-btn text-center">
+            <a href="#" class="btn in btn-primary btn-lg" title="Facebook" onclick="fb_login()"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="btn in btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="btn in btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
+        </div>
+        <div class="or-seperator"><b>{{ 'security.login.or'|trans({}, 'messages') }}</b></div>
+        <div class="form-group">
+            <input type="text" class="form-control input-lg" name="_username" value="{{ last_username }}" placeholder="{{ 'security.login.email_username'|trans({}, 'messages') }}" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control input-lg" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block signup-btn">{{ 'security.login.submit'|trans }}</button>
+        </div>
+        <div class="clearfix">
+            <label for="remember_me" class="pull-left checkbox-inline small"><input type="checkbox" id="remember_me" name="_remember_me" checked> {{ 'security.login.remember_me'|trans }}</label>
+            <div class="small"><a href="{{ path('fos_user_resetting_request') }}" class="pull-right">{{ 'security.login.forgot_password'|trans({}, 'messages') }}</a></div>
+        </div>
+    </form>
 
-                <div id="loginForm">
-                  <form action="{{ path('fos_user_security_check') }}" method="post">
-                      {% if csrf_token %}
-                          <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                      {% endif %}
-                        <fieldset>
-                            <input autocomplete="username" autofocus="autofocus" class="rounded padded" id="username" name="_username" value="{{ last_username }}" placeholder="Email address or username" required="required" type="text">
-                        </fieldset>
-
-                        <fieldset>
-                            <input class="rounded padded" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" type="password" autocomplete="current-password" >
-                        </fieldset>
-
-                        <fieldset class="remember-fieldset">
-                            <span class="u-left">
-                                <input id="remember_me" name="_remember_me" type="checkbox" checked>
-                                <label class="remember-me" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-                            </span>
-                            <a class="forgot-password u-right" href="{{ path('fos_user_resetting_request') }}">Forgot password ?</a>
-                        </fieldset>
-                        <input class="full-width no-max-width" name="commit" type="submit" value="Connexion">
-                    </form>
-                    <div class="dash">
-                        <span class="t-bold">or</span>
-                    </div>
-                    <a class="button b-facebook full-width no-max-width" href="#" onclick="fb_login()">
-                        <span aria-hidden="true" class="fa fa-facebook icon-facebook"></span>
-                        Continue with Facebook
-                    </a>
-
-                    <div id="loginBoxFooter" class="u-text-center">
-                        <p class="not-registered">Not registered yet&nbsp;?</p>
-                        <a class="button" onclick="window.location='{{ url('fos_user_registration_register') }}'">{{ 'layout.register'|trans }}</a>
-                    </div>
-                </div> <!-- loginForm -->
-            </section>
-        </div> <!-- loginBoxFrame -->
-
-        <button type="button" id="loginBoxClose" class="fa fa-times" onclick="window.location='{{ url('homepage') }}'"></button>
-    </div> <!-- loginBoxContent -->
+    <div class="text-center small">{{ 'registration.no_account'|trans({}, 'messages') }} <a href="{{ path('fos_user_registration_register') }}">{{ 'registration.signup'|trans({}, 'messages') }}</a></div>
+</div>

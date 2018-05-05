@@ -20,8 +20,8 @@ $(document).ready(function() {
     // Sets the timer variable to run the timeout delay
     timer = setTimeout(function() {
       // remove the class .open and hide the submenu
-      $('.dropdown').removeClass("show");
-      $('.dropdown-menu').removeClass("show");
+      $('.dropdown').removeClass('show');
+      $('.dropdown-menu').removeClass('show');
     }, 500);
 
   });

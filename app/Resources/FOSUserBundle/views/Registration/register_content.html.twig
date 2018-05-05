@@ -1,68 +1,49 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div id="loginOverlay" style="opacity: 0.9; visibility: visible;"></div>
-<div id="registerBox" role="dialog" tabindex="-1">
-    <div id="loginBoxWrapper">
-        <div id="loginBoxContent">
-                <div id="loginBoxFrame">
-                    <section class="box mod-modal mod-login js-login-modal" data-error-message="Une erreur s'est produite. Veuillez réessayer.">
-                        <header id="loginBoxHeader">
-                            <h1>{{ 'layout.register'|trans}}</h1>
-                        </header>
+<div class="signin-form">
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register')}) }}
 
-                        <div id="loginForm">
-                          {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register')}) }}
-                                <fieldset>
-                                    <div class="register-user">
-                                        <div class="register-name first">
-                                          {{ form_widget(form.firstname, {'attr': {'class': 'rounded padded', 'placeholder': 'First name' }}) }}
-                                          {{ form_errors(form.firstname) }}
-                                        </div>
-                                        <div class="register-name last">
-                                          {{ form_widget(form.lastname, {'attr': {'class': 'rounded padded', 'placeholder': 'Last name' }}) }}
-                                          {{ form_errors(form.lastname) }}
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                <fieldset>
-                                    {{ form_widget(form.username, {'attr': {'class': 'rounded padded', 'placeholder': 'form.username'|trans }}) }}
-                                    {{ form_errors(form.username) }}
-                                </fieldset>
-                                <fieldset>
-                                    {{ form_widget(form.email, {'attr': {'class': 'rounded padded', 'placeholder': 'form.email'|trans }}) }}
-                                    {{ form_errors(form.email) }}
-                                </fieldset>
-                                <fieldset>
-                                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'rounded padded', 'placeholder': 'form.password'|trans }}) }}
-                                    {{ form_errors(form.plainPassword.first) }}
-                                </fieldset>
-                                <fieldset>
-                                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'rounded padded', 'placeholder': 'form.password_confirmation'|trans }}) }}
-                                    {{ form_errors(form.plainPassword.second) }}
-                                </fieldset>
+    <h2>{{ 'registration.create_account'|trans({}, 'messages') }}</h2>
+    <p class="hint-text">{{ 'registration.signup_social'|trans({}, 'messages') }}</p>
+    <div class="social-btn text-center">
+        <a href="#" class="btn up btn-primary btn-lg" onclick="fb_login()"><i class="fa fa-facebook"></i> Facebook</a>
+        <a href="#" class="btn up btn-info btn-lg"><i class="fa fa-twitter"></i> Twitter</a>
+        <a href="#" class="btn up btn-danger btn-lg"><i class="fa fa-google"></i> Google</a>
+    </div>
+    <div class="or-seperator"><b>{{ 'security.login.or'|trans({}, 'messages') }}</b></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-6">
+                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control', 'placeholder': 'form.firstname'|trans({}, 'messages'), 'required': 'required' }}) }}
+                    {{ form_errors(form.firstname) }}
+                </div>
+                <div class="col-6">
+                    {{ form_widget(form.lastname, {'attr': {'class': 'form-control', 'placeholder': 'form.lastname'|trans({}, 'messages'), 'required': 'required' }}) }}
+                    {{ form_errors(form.lastname) }}
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.username, {'attr': {'class': 'form-control input-lg', 'placeholder': 'form.username'|trans, 'required': 'required' }}) }}
+            {{ form_errors(form.username) }}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.email, {'attr': {'class': 'form-control input-lg', 'placeholder': 'form.email'|trans, 'required': 'required' }}) }}
+              {{ form_errors(form.email) }}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control input-lg', 'placeholder': 'form.password'|trans, 'required': 'required' }}) }}
+            {{ form_errors(form.plainPassword.first) }}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control input-lg', 'placeholder': 'form.password_confirmation'|trans, 'required': 'required' }}) }}
+            {{ form_errors(form.plainPassword.second) }}
+        </div>
+        <div class="form-group">
+            <button type="submit" name="commit" class="btn btn-success btn-lg btn-block signup-btn">{{ 'registration.submit'|trans }}</button>
+        </div>
+        {{ form_rest(form) }}
+    {{ form_end(form) }}
 
-                                <input class="full-width no-max-width" name="commit" type="submit" value="Register with Email">
-
-                                 {{ form_rest(form) }}
-                            {{ form_end(form) }}
-                            <div class="dash">
-                                <span class="t-bold">or</span>
-                            </div>
-                            <a class="button b-facebook full-width no-max-width" href="#" onclick="fb_login()">
-                                <span aria-hidden="true" class="fa fa-facebook icon-facebook"></span>
-                                Continue with Facebook
-                            </a>
-
-                            <div id="loginBoxFooter" class="u-text-center">
-                                <p class="not-registered">Already have an account&nbsp;?</p>
-                                <a class="button" onclick="window.location='{{ url('fos_user_security_login') }}'">Connexion</a>
-                            </div>
-                        </div> <!-- loginForm -->
-                    </section>
-                </div> <!-- loginBoxFrame -->
-
-                <button type="button" id="loginBoxClose" class="fa fa-times" onclick="window.location='{{ url('homepage') }}'"></button>
-        </div> <!-- loginBoxContent -->
-    </div> <!-- loginBoxWrapper -->
-</div> <!-- registerBox -->
-</div> <!-- loginOverlay -->
+    <div class="text-center">{{ 'registration.exist_account'|trans({}, 'messages') }} <a href="{{ path('fos_user_security_login') }}">{{ 'registration.login_here'|trans({}, 'messages')}}</a></div>
+</div>

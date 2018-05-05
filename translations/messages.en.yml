@@ -1,3 +1,22 @@
+security:
+    login:
+        email_username: 'Email address or username'
+        signin: 'Sign in'
+        signin_social: 'Sign in with your social media account'
+        forgot_password: 'Forgot password?'
+        or: 'ou'
+
+registration:
+        no_account: 'Don''t have an account?'
+        signup: 'Sign up'
+        create_account: 'Create an Account'
+        signup_social: 'Sign up with your social media account or email address'
+        exist_account: 'Already have an account?'
+        login_here: 'Login here'        
+
+form:
+        firstname: 'First name'
+        lastname: 'Last name'
+
 profile:
     edit: 'My profile'
-    

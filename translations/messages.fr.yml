@@ -1,2 +1,22 @@
+security:
+    login:
+        email_username: 'Email ou nom d''utilisateur'
+        signin: 'Se connecter'
+        signin_social: 'Se connecter avec un commpte réseau social'
+        forgot_password: 'Mot de passe oublié ?'
+        or: 'ou'
+
+registration:
+        no_account: 'Pas encore de compte ?'
+        signup: 'S''inscrire'
+        create_account: 'Créer un Compte'
+        signup_social: 'S''inscrire avec votre compte réseau social ou votre email'
+        exist_account: 'Vous avez déjà un compte ?'
+        login_here: 'Connectez-vous'
+
+form:
+        firstname: 'Prénom'
+        lastname: 'Nom'
+
 profile:
     edit: 'Mon profil'

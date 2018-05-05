@@ -28,8 +28,8 @@ security:
 
 
             remember_me:
-                secret:   '%kernel.secret%'
-                lifetime: 604800 # 1 week in seconds
+                secret:   '%secret%'
+                lifetime: 31536000 # 1 year in seconds
                 path:     /
 
             oauth:
