@@ -1,8 +1,15 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<main id="main-container" class="container main-flex" role="main">
-<div class="signin-form">
+<div class="modal-header">
+    <h3 class="col-12 modal-title text-center">
+        {{ 'security.login.signin'|trans({}, 'messages') }}
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </h3>
+</div>
 
+<div class="modal-body">
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
@@ -11,7 +18,6 @@
       {% if csrf_token %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
       {% endif %}
-		    <h2>{{ 'security.login.signin'|trans({}, 'messages') }}</h2>
         <p class="hint-text">{{ 'security.login.signin_social'|trans({}, 'messages') }}</p>
         <div class="social-btn text-center">
             <a href="#" class="btn in btn-primary btn-lg" title="Facebook" onclick="fb_login()"><i class="fa fa-facebook"></i></a>
@@ -33,7 +39,10 @@
             <div class="small"><a href="{{ path('fos_user_resetting_request') }}" class="pull-right">{{ 'security.login.forgot_password'|trans({}, 'messages') }}</a></div>
         </div>
     </form>
-
-    <div class="text-center small">{{ 'registration.no_account'|trans({}, 'messages') }} <a href="{{ path('fos_user_registration_register') }}">{{ 'registration.signup'|trans({}, 'messages') }}</a></div>
 </div>
-</main>
+
+<div class="modal-footer">
+    <div class="col-12 text-center small">
+        {{ 'registration.no_account'|trans({}, 'messages') }} <a href="{{ path('fos_user_registration_register') }}">{{ 'registration.signup'|trans({}, 'messages') }}</a>
+    </div>
+</div>

@@ -23,6 +23,7 @@ class MenuBuilder
 
         $menu->addChild('layout.register',
           array('attributes' => array('divider_append_2' => true),
+            'linkAttributes' =>  array('class' => 'connect-modal'),
             'route' => 'fos_user_registration_register')
         )->setExtra('translation_domain', 'FOSUserBundle');
 
@@ -51,8 +52,14 @@ class MenuBuilder
             )->setExtra('translation_domain', 'FOSUserBundle');
         }
         else {
-            $menu->addChild('layout.login',
+/*            $menu->addChild('layout.login',
               array('route' => 'fos_user_security_login')
+            )->setExtra('translation_domain', 'FOSUserBundle');*/
+
+            $menu->addChild('layout.login',
+              //array('linkAttributes' =>  array('data-toggle' => 'modal', 'data-target' => '#modalLogin'),
+              array('linkAttributes' =>  array('class' => 'connect-modal'),
+                'route' => 'fos_user_security_login')
             )->setExtra('translation_domain', 'FOSUserBundle');
         }
 

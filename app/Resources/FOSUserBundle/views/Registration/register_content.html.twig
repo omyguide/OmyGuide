@@ -1,10 +1,17 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<main id="main-container" class="container main-flex" role="main">
-<div class="signin-form">
+<div class="modal-header">
+    <h3 class="col-12 modal-title text-center">
+        {{ 'registration.create_account'|trans({}, 'messages') }}
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </h3>
+</div>
+
+<div class="modal-body">
     {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register')}) }}
 
-    <h2>{{ 'registration.create_account'|trans({}, 'messages') }}</h2>
     <p class="hint-text">{{ 'registration.signup_social'|trans({}, 'messages') }}</p>
     <div class="social-btn text-center">
         <a href="#" class="btn up btn-primary btn-lg" onclick="fb_login()"><i class="fa fa-facebook"></i> Facebook</a>
@@ -45,7 +52,10 @@
         </div>
         {{ form_rest(form) }}
     {{ form_end(form) }}
-
-    <div class="text-center">{{ 'registration.exist_account'|trans({}, 'messages') }} <a href="{{ path('fos_user_security_login') }}">{{ 'registration.login_here'|trans({}, 'messages')}}</a></div>
 </div>
-</main>
+
+<div class="modal-footer">
+    <div class="col-12 text-center small">
+        {{ 'registration.exist_account'|trans({}, 'messages') }} <a href="{{ path('fos_user_security_login') }}">{{ 'registration.login_here'|trans({}, 'messages')}}</a>
+    </div>
+</div>

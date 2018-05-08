@@ -25,6 +25,12 @@
     </article>
   </div><!-- front-container-flex -->
   </main>
+  <!-- The Modal -->
+<div class="modal fade" id="modalLogin">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content"></div>
+  </div>
+</div>
 {% endblock %}
 
 {% block footer %}
@@ -41,5 +47,11 @@
       $('b[role="presentation"]').hide();
       $('.js-datepicker').datepicker({orientation: 'bottom'});
     });
+  </script>
+  <script type="text/javascript">
+      $('.connect-modal').on('click', function(e){
+          e.preventDefault();
+          $('#modalLogin').modal('show').find('.modal-content').load($(this).attr('href'));
+      });
   </script>
 {% endblock %}
