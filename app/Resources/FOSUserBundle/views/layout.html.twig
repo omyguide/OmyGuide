@@ -1,5 +1,10 @@
+{% block content %}
+  {% block fos_user_content %}
+  {% endblock fos_user_content %}
+{% endblock %}
+
 {% block javascripts %}
-  <script>
+<script>
   window.fbAsyncInit = function() {
     FB.init({
       appId            : {{ facebook_client_id }},
@@ -17,26 +22,41 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-function fb_login() {
-  FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-      // connected
-      document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
-    } else {
-      // not_authorized
-      FB.login(function(response) {
-        if (response.authResponse) {
-          document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+  function fb_login() {
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        // connected
+        document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+      } else {
+        // not_authorized
+        FB.login(function(response) {
+          if (response.authResponse) {
+            document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+          }
+        }, {scope: 'email'});
+      }
+    });
+  }
+
+</script>
+
+<script>
+  $( "#form_login" ).submit( function(e) {
+    e.preventDefault();
+    $.post(
+      $(this).attr('action'),
+      $(this).serialize(),
+      function(data){
+        if (data.success) {
+          $('#modalLogin').modal('hide');
+          location.reload(true);
         }
-      }, {scope: 'email'});
-    }
+        else {
+          alert("KO");
+        }
+      },
+      'json'
+    );
   });
-}
-
-    </script>
-{% endblock %}
-
-{% block content %}
-  {% block fos_user_content %}
-  {% endblock fos_user_content %}
+</script>
 {% endblock %}

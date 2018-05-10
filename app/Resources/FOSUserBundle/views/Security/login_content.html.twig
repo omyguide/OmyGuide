@@ -14,7 +14,15 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-    <form action="{{ path('fos_user_security_check') }}" method="post">
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+    <form id="form_login" action="{{ path('fos_user_security_check') }}" method="post">
       {% if csrf_token %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
       {% endif %}

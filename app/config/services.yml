@@ -35,6 +35,22 @@ services:
             - '@fos_user.user_manager'
             - { facebook: facebook_id, google: googleId }
 
+    app.authentication_success_handler:
+        class: AppBundle\Security\AuthenticationSuccessHandler
+        arguments:
+            - "@security.http_utils"
+            - []
+            - "@router"
+
+    app.authentication_failure_handler:
+        class: AppBundle\Security\AuthenticationFailureHandler
+        arguments:
+            - "@http_kernel"
+            - "@security.http_utils"
+            - []
+            - "@logger"
+            - "@session.flash_bag"
+
     app.menu_builder:
         class: AppBundle\Menu\MenuBuilder
         arguments:
